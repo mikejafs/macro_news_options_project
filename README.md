@@ -1,12 +1,12 @@
 # Which options respond to which macro news, and do they charge the right amount?
 
-Erdős Institute, Introduction to Quantitative Methods in Finance, Fall 2026. Solo project.
+Erdős Institute, Introduction to Quantitative Methods in Finance, Fall 2026.
 
 US macro data (CPI, the jobs report, PCE, GDP and others) comes out at 08:30 ET on dates known in advance. Options expiring the next day have to price that risk the evening before. This project measures, for about 450 release mornings from May 2022 to October 2026:
 
 1. **How stocks respond to the news**, and how that depends on what the news does to interest rates.
 2. **What options charge for each release**, across release types, maturities and underlyings.
-3. **Whether the charge was right**, using a delta-hedged straddle built from the course's Black–Scholes and delta-hedging code.
+3. **Whether the charge was right**, using a delta-hedged straddle built from the Black–Scholes model and delta-hedging strategy.
 4. **An outside check for CPI**: Kalshi prediction-market contracts give the distribution of the CPI print the evening before, which splits the option price into "how big is the news" and "how much do stocks care".
 
 ![Summary](figures/summary.png)
