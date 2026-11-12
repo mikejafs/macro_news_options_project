@@ -41,7 +41,7 @@ from scipy import stats
 
 KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
 NY = "America/New_York"
-# Project layout: kalshi_vs_spx/{experiments,data,figures}, anchored to this file.
+# Project layout: {scripts,data,figures}, anchored to this file.
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 FIGS = ROOT / "figures"

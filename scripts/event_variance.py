@@ -45,7 +45,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy import stats
 
-# Project layout: kalshi_vs_spx/{experiments,data,figures}. Paths are anchored
+# Project layout: {scripts,data,figures}. Paths are anchored
 # to this file, so the script runs correctly from any working directory.
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
