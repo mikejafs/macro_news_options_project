@@ -189,5 +189,5 @@ API responses are cached under `data/cache_*`; derived tables are in `data/` and
 
 - Rigobon, R. and Sack, B. (2004). The impact of monetary policy on asset prices. *Journal of Monetary Economics* 51(8).
 - Bakshi, G. and Kapadia, N. (2003). Delta-hedged gains and the negative market volatility risk premium. *Review of Financial Studies* 16(2).
-- Knox, B., Londono, J. M., Samadi, M. et al. Equity premium events. (CPI-day equity premium; closest related work to the Kalshi chapter.)
+- Knox, B., Londono, J. M., Samadi, M. and Vissing-Jorgensen, A. (2025). Equity premium events. Working paper, Federal Reserve Board. (Closest related work to the Kalshi chapter.)
 - Cboe. VIX1D methodology.

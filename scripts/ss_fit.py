@@ -30,6 +30,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ss_model as sm  # noqa: E402
 
@@ -103,15 +105,15 @@ def main():
     fig, ax = plt.subplots(2, 1, figsize=(10, 7), sharex=True)
     x = d["date"]
     ax[0].fill_between(x, d.beta_s - 1.96 * d.beta_s_sd, d.beta_s + 1.96 * d.beta_s_sd,
-                       alpha=0.25, label="smoothed beta_t, 95%")
-    ax[0].plot(x, d.beta_s, lw=2)
-    ax[0].plot(x, d.beta_f, ls="--", label="filtered beta_t|t")
-    ax[0].scatter(x, d.beta_impl_signed, s=14, c="k", label="-|beta_impl| (options/Kalshi)")
+                       alpha=0.25, color=NAVY, label="smoothed beta_t, 95%")
+    ax[0].plot(x, d.beta_s, lw=2, color=NAVY)
+    ax[0].plot(x, d.beta_f, ls="--", color=GREY, label="filtered beta_t|t")
+    ax[0].scatter(x, d.beta_impl_signed, s=14, color=RED, label="-|beta_impl| (options/Kalshi)")
     ax[0].axhline(0, c="grey", lw=0.5)
     ax[0].set_ylabel("beta  (%/pp)")
     ax[0].legend(fontsize=8)
     ax[0].set_title(f"CPI sensitivity, return window = {a.ret}")
-    ax[1].bar(x, d.excess, width=20)
+    ax[1].bar(x, d.excess, width=20, color=NAVY)
     ax[1].axhline(0, c="grey", lw=0.5)
     ax[1].set_ylabel("EV - fair EV  (%^2)")
     fig.tight_layout()

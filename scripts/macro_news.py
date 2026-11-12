@@ -44,6 +44,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import narrow_window as nw  # noqa: E402
 
@@ -160,7 +162,7 @@ def main(calendar=DATA / "macro_calendar.csv"):
         g = t[(t.window == "w45") & (t.kind == k) & t.period.isin(yrs)].dropna(subset=["gamma"])
         xx = g.period.astype(int)
         ax.errorbar(xx, g.gamma, yerr=[g.gamma - g.lo.clip(lower=-3), g.hi.clip(upper=4) - g.gamma],
-                    fmt="o-", capsize=3, color="#0072B2")
+                    fmt="o-", capsize=3, color=NAVY)
         ax.axhline(0, c="grey", lw=0.6)
         ax.set_title(k.split(" ")[0], fontsize=10)
         ax.set_xticks(range(2022, 2027))

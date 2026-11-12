@@ -49,6 +49,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import narrow_window as nw  # noqa: E402
 import ss_model as sm  # noqa: E402
@@ -249,8 +251,8 @@ def main(calendar=DATA / "macro_calendar.csv"):
     for ax, reg in zip(axes, ["2022-23", "2024-26"]):
         g = A[A.regime == reg]
         xx = np.arange(len(g))
-        ax.bar(xx - 0.2, g.priced, 0.4, yerr=1.96 * g.priced_se, capsize=2, color="#0072B2", label="priced (VIX1D)")
-        ax.bar(xx + 0.2, g.realized, 0.4, yerr=1.96 * g.realized_se, capsize=2, color="#D55E00", label="realized")
+        ax.bar(xx - 0.2, g.priced, 0.4, yerr=1.96 * g.priced_se, capsize=2, color=NAVY, label="priced (VIX1D)")
+        ax.bar(xx + 0.2, g.realized, 0.4, yerr=1.96 * g.realized_se, capsize=2, color=RED, label="realized")
         ax.set_xticks(xx)
         ax.set_xticklabels(g.release, rotation=30)
         ax.axhline(0, c="grey", lw=0.6)

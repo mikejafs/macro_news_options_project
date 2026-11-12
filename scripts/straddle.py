@@ -48,6 +48,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from course_bs import straddle, straddle_delta  # noqa: E402
 from narrow_window import load_bars, nfp_dates  # noqa: E402
@@ -232,11 +234,11 @@ def main():
     FIGS.mkdir(exist_ok=True)
     fig, ax = plt.subplots(figsize=(10, 4.5))
     ne = df[df.kind == "non_event"]
-    ax.plot(ne.date, ne.pnl_bp.rolling(60, min_periods=20).mean(), c="grey",
+    ax.plot(ne.date, ne.pnl_bp.rolling(60, min_periods=20).mean(), c=GREY,
             label="non-event eves, 60-day rolling mean")
     cp = df[df.kind == "CPI"]
-    ax.bar(cp.date, cp.pnl_on_bp, width=12, label="CPI: overnight")
-    ax.bar(cp.date, cp.pnl_intra_bp, width=12, bottom=cp.pnl_on_bp, label="CPI: intraday")
+    ax.bar(cp.date, cp.pnl_on_bp, width=12, color=NAVY, label="CPI: overnight")
+    ax.bar(cp.date, cp.pnl_intra_bp, width=12, bottom=cp.pnl_on_bp, color=RED, label="CPI: intraday")
     ax.axhline(0, c="k", lw=0.5)
     ax.axvline(REGIME_SPLIT, ls=":", c="k")
     ax.set_ylabel("short straddle P&L (bp of S)")

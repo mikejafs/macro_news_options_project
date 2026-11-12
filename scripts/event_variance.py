@@ -43,6 +43,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
 from scipy import stats
 
 # Project layout: {scripts,data,figures}. Paths are anchored
@@ -267,12 +269,12 @@ def main():
 
     fig, ax = plt.subplots(1, 2, figsize=(13, 5))
     ax[0].plot(t.index, t["v_imp"], color="0.75", lw=0.6, label="V_imp, all eves")
-    ax[0].scatter(k["eve"], k["v_imp"], s=14, color="tab:red", label="V_imp, CPI eve", zorder=3)
-    ax[0].scatter(k["eve"], k["v_bg_med"], s=14, color="tab:blue", label="background (median)", zorder=3)
+    ax[0].scatter(k["eve"], k["v_imp"], s=14, color=RED, label="V_imp, CPI eve", zorder=3)
+    ax[0].scatter(k["eve"], k["v_bg_med"], s=14, color=NAVY, label="background (median)", zorder=3)
     ax[0].set(yscale="log", ylabel="implied variance of next session (%²)",
               title="VIX1D-implied variance: CPI eves vs background")
     ax[0].legend()
-    for (per, g), col in zip(k.groupby("period"), ["tab:red", "tab:blue"]):
+    for (per, g), col in zip(k.groupby("period"), [RED, NAVY]):
         ax[1].scatter(g["ev_med"], g["r_on2"], color=col, alpha=0.8, label=per)
     lim = np.nanmax([k["ev_med"].max(), 1.0])
     ax[1].plot([0, lim], [0, lim], color="grey", lw=0.8, ls="--", label="r_on² = EV")

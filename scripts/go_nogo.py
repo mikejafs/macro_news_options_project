@@ -36,6 +36,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
 import statsmodels.api as sm
 from scipy import stats
 
@@ -379,7 +381,7 @@ def main():
 
     # Figure
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
-    for (per, g), col in zip(panel.groupby("period"), ["tab:red", "tab:blue"]):
+    for (per, g), col in zip(panel.groupby("period"), [RED, NAVY]):
         g = g.dropna(subset=[main_x, "r_on"])
         ax[0].scatter(g[main_x], g["r_on"], color=col, label=per, alpha=0.8)
         if len(g) >= 3:

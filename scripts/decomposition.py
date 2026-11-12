@@ -40,6 +40,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 FIGS = ROOT / "figures"
@@ -152,9 +154,9 @@ def main():
     df.to_csv(DATA / "decomposition_panel.csv", index=False)
 
     fig, ax = plt.subplots(figsize=(10, 4.5))
-    ax.scatter(df["date"], df["beta_impl_t"], s=18, color="tab:purple",
+    ax.scatter(df["date"], df["beta_impl_t"], s=18, color=NAVY,
                label="|β| implied by options: √EV / σ_K (per release)")
-    ax.plot(df["date"], df["beta_roll"].abs(), color="tab:orange", lw=2,
+    ax.plot(df["date"], df["beta_roll"].abs(), color=RED, lw=2,
             label=f"|β| realized: rolling OLS, last {ROLL} releases")
     ax.axvline(pd.Timestamp("2024-01-01"), color="grey", lw=0.8, ls="--")
     ax.set(ylabel="CPI sensitivity |β| (% SPY per pp surprise)",

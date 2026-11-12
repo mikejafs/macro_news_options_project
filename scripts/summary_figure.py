@@ -17,9 +17,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA, FIGS = ROOT / "data", ROOT / "figures"
-C = {"2022-23": "#D55E00", "2024-26": "#0072B2"}
+C = {"2022-23": RED, "2024-26": NAVY}
 
 
 def main():

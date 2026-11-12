@@ -33,6 +33,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from palette import RED, NAVY, GREY, INK, MUTED, PERIOD  # noqa: E402,F401
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import narrow_window as nw  # noqa: E402
 import ss_model as sm  # noqa: E402
@@ -132,11 +134,11 @@ def main():
     fig, ax = plt.subplots(3, 1, figsize=(9, 8), sharex=True)
     for a, name, lab in [(ax[0], "delta", f"delta_t: {PRIMARY} % per pp"), (ax[1], "beta", "beta_t: SPY % per pp")]:
         m, sd = out[name]
-        a.fill_between(d.date, m - 1.96 * sd, m + 1.96 * sd, alpha=0.2)
-        a.plot(d.date, m, lw=2)
+        a.fill_between(d.date, m - 1.96 * sd, m + 1.96 * sd, alpha=0.2, color=NAVY)
+        a.plot(d.date, m, lw=2, color=NAVY)
         a.axhline(0, c="grey", lw=0.5)
         a.set_ylabel(lab)
-    ax[2].plot(d.date, out["beta"][0] / out["delta"][0], lw=2, c="k")
+    ax[2].plot(d.date, out["beta"][0] / out["delta"][0], lw=2, color=NAVY)
     ax[2].axhline(0, c="grey", lw=0.5)
     ax[2].set_ylabel("gamma_t = beta_t / delta_t")
     ax[0].set_title("Rates channel of the CPI reaction (Kalman-smoothed, 08:30 -> 08:45)")
