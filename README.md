@@ -66,7 +66,7 @@ is the SPY move per 1% TLT move caused by the news. It needs no measure of the s
 
 ## Results that did not survive testing
 
-Four results looked real at some point in the project and were withdrawn after a check. They are listed because the checks are part of the method.
+Four results looked real at some point in the project and were withdrawn after a check.
 
 | Apparent result | What removed it |
 |---|---|
